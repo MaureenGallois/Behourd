@@ -1,0 +1,4 @@
+
+
+def CheckFileExtension():
+    return None
