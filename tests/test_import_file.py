@@ -3,7 +3,7 @@ from app.import_file import *
 from pytest import *
 
 def test_fileExtentionIsGood():
-    assert CheckFileExtention() == 'xlsx'
+    assert import_file.CheckFileExtention("Exemple1.xslx") == True
 
 def test_fileExtentionIsBad():
-    assert CheckFileExtention() == 'doc'
+    assert CheckFileExtention("Truc.pdf") == False
