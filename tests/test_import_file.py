@@ -1,9 +1,9 @@
-from app.import_file import *
+import app.import_file as file
 
 from pytest import *
 
 def test_fileExtentionIsGood():
-    assert import_file.CheckFileExtention("Exemple1.xslx") == True
+    assert file.CheckFileExtension("Exemple1.xlsx") == True
 
 def test_fileExtentionIsBad():
-    assert CheckFileExtention("Truc.pdf") == False
+    assert file.CheckFileExtension("Truc.pdf") == False
