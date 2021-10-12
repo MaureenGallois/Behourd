@@ -17,16 +17,22 @@ class Game:
     def __init__(self) :
         pass
 
-    def create(listePlayer) :
-        teamA, teamB = []
-        listePlayer.sort(key= lambda p: p.get("weight"))
-        for i, player in listePlayer :
-            if i%2:
+    def create(listPlayer) :
+        teamA = []
+        teamB = []
+        avgA = 0
+        avgB = 0
+        i = 1
+        j = len(listPlayer)
+        listPlayer = sorted(listPlayer, key= lambda p: p.weight)
+        for player in listPlayer :
+            if i%2 == 0:
                 teamA.append(player)
                 avgA = avgA + player.weight
             else :
                 teamB.append(player)
                 avgB = avgB + player.weight
+            i += 1
         avgA = avgA / len(teamA)
         avgB = avgB / len(teamB)
 
