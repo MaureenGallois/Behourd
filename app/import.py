@@ -1,4 +1,0 @@
-
-
-def CheckFileExtension():
-    return None
