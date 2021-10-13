@@ -34,7 +34,7 @@ class Team :
         avg = 0
         for p in self.listPlayer :
             avg += p.weight
-        return avg/len(self.listPlayer)
+        return avg/self.size()
 
     def initCategory(self):
         if (self.avg <= self.WEIGHT_CATEGORIES[0][1]):
@@ -52,3 +52,6 @@ class Team :
         self.listPlayer.append(guest)
         self.avg = self.average()
         self.weight_category =self.initCategory()
+
+    def size(self) :
+        return len(self.listPlayer)

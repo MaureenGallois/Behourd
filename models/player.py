@@ -1,6 +1,12 @@
 class Player:
 
-    def __init__(self, name, surname, weight, subscriptionDate):
+    def __init__(self, json=None, name=None, surname=None, weight=None, subDate=None) :
+        if json != None :
+            self.init(json["nom"], json["prenom"], json["weight"], json["annee_inscription"])
+        else :
+            self.init(name, surname, weight, subDate)
+
+    def init(self, name, surname, weight, subscriptionDate):
         self.name = name
         self.surname = surname
         self.weight = weight

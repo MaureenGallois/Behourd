@@ -1,0 +1,47 @@
+
+{
+    "players":[
+        {
+            "nom" : "GROS",
+            "prenom": "Paul",
+            "weight": 134,
+            "annee_inscription": 2006
+        },
+        {
+            "nom" : "BLANC",
+            "prenom": "Louis",
+            "weight": 47,
+            "annee_inscription": 2020
+        },
+        {
+            "nom" : "GIRAUD",
+            "prenom": "Jean-Michel",
+            "weight": 79,
+            "annee_inscription": 1987
+        },
+        {
+            "nom" : "PÂRIS",
+            "prenom": "Théophile",
+            "weight": 102,
+            "annee_inscription": 2003
+        },
+        {
+            "nom" : "DUTROU",
+            "prenom": "Jacques",
+            "weight": 69,
+            "annee_inscription": 2021
+        },
+        {
+            "nom" : "DURAND",
+            "prenom": "Martin",
+            "weight": 130,
+            "annee_inscription": 2021
+        },
+        {
+            "nom" : "JEAN",
+            "prenom": "Arthur",
+            "weight": 96,
+            "annee_inscription": 2021
+        }
+    ]
+}
