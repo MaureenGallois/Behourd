@@ -17,8 +17,11 @@ def test_init_category():
 
     game = Game(listPlayers)
 
-    assert game.teamA.weight_category == "Super-Lourds"
-    assert game.teamB.weight_category == "Moyens"
+    print(game.teamA.weight_category)
+    print(game.teamB.weight_category)
+
+    assert game.teamA.weight_category == "Lourds"
+    assert game.teamB.weight_category == "Lourds"
 
 
 def test_count_players() :
@@ -48,8 +51,8 @@ def test_sort_teams() :
 
     game = Game(listPlayers)
 
-    assert game.teamA.__eq__(Team([Player(data["players"][2]), Player(data["players"][0])]))
-    assert game.teamB.__eq__(Team([Player(data["players"][1]), Player(data["players"][3])]))
+    assert game.teamA.__eq__(Team([Player(data["players"][1]), Player(data["players"][0])]))
+    assert game.teamB.__eq__(Team([Player(data["players"][2]), Player(data["players"][3])]))
 
 
 def test_add_a_guest():
@@ -65,18 +68,47 @@ def test_add_a_guest():
 
     game.addAGuest(Player(data["players"][4]))
 
-    assert game.teamA.__eq__(Team([Player(data["players"][2]), Player(data["players"][0]),Player(data["players"][4])]))
-    assert game.teamB.__eq__(Team([Player(data["players"][1]), Player(data["players"][3])]))
+    assert game.teamA.__eq__(Team([Player(data["players"][1]), Player(data["players"][0]),Player(data["players"][4])]))
+    assert game.teamB.__eq__(Team([Player(data["players"][2]), Player(data["players"][3])]))
 
 
     game.addAGuest(Player(data["players"][5]))
 
-    assert game.teamA.__eq__(Team([Player(data["players"][2]), Player(data["players"][0]), Player(data["players"][4])]))
-    assert game.teamB.__eq__(Team([Player(data["players"][1]), Player(data["players"][3]), Player(data["players"][5])]))
+    assert game.teamA.__eq__(Team([Player(data["players"][1]), Player(data["players"][0]), Player(data["players"][4])]))
+    assert game.teamB.__eq__(Team([Player(data["players"][2]), Player(data["players"][3]), Player(data["players"][5])]))
 
     game.addAGuest(Player(data["players"][6]))
 
-    assert game.teamA.__eq__(Team([Player(data["players"][2]), Player(data["players"][0]), Player(data["players"][4])]))
-    assert game.teamB.__eq__(Team([Player(data["players"][1]), Player(data["players"][3]), Player(data["players"][5]), Player(data["players"][6])]))
+    print(game.teamA)
+
+    assert game.teamA.__eq__(Team([Player(data["players"][1]), Player(data["players"][0]), Player(data["players"][4]),Player(data["players"][6])]))
+    assert game.teamB.__eq__(Team([Player(data["players"][2]), Player(data["players"][3]), Player(data["players"][5])]))
 
 
+
+def test_delete_player():
+    listPlayers = [
+        Player(data["players"][0]),
+        Player(data["players"][1]),
+        Player(data["players"][2]),
+        Player(data["players"][3])
+    ]
+
+    game = Game(listPlayers)
+
+    game.deletePlayer(Player(data["players"][2]))
+
+    assert game.teamA.__eq__(Team([Player(data["players"][0]), Player(data["players"][1]), Player(data["players"][3])]))
+
+
+def test_equlibrate_team() :
+    listPlayers = [
+            Player(data["players"][0]),
+            Player(data["players"][1]),
+            Player(data["players"][2]),
+            Player(data["players"][3])
+        ]
+    game = Game(listPlayers)
+
+    assert game.teamA.__eq__(Team([Player(data["players"][1]), Player(data["players"][0])]))
+    assert game.teamB.__eq__(Team([Player(data["players"][2]), Player(data["players"][3])]))
