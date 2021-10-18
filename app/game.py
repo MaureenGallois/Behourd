@@ -7,18 +7,35 @@ class Game:
     def __init__(self, listPlayer) :
         self.create(listPlayer)
 
-    def create(self, listPlayer) :
+    def create(self,listPlayer) :
         teamA = []
         teamB = []
-        i = 1
-        listPlayer = sorted(listPlayer, key= lambda p: p.weight)
+        avgAttendu= 1000.0
+        avgTeam =1000.0
+        weightTotal =0.0
+        weightCombinaison = 0.0
+        lessAvg = 0
+        lessRes = 10000
+        goodCombinaison = (0,0)
 
+        listPlayer = sorted(listPlayer, key= lambda p: p.weight)
         for player in listPlayer :
-            if i%2 == 0:
+            weightTotal = weightTotal + player.weight
+        avgAttendu = weightTotal/len(listPlayer)
+        for combinaison in itertools.combinations(listPlayer,int(len(listPlayer)/2)) :
+            weightCombinaison = 0
+            for i in range(int(len(listPlayer)/2)):
+                weightCombinaison = weightCombinaison + combinaison[i].weight
+            avgTeam = weightCombinaison/int(len(listPlayer)/2)
+            lessAvg = abs(avgTeam - avgAttendu)
+            if(lessAvg < lessRes) :
+                lessRes = lessAvg
+                goodCombinaison = combinaison
+        for player in listPlayer :
+            if(player in goodCombinaison) :
                 teamA.append(player)
             else :
                 teamB.append(player)
-            i += 1
         self.teamA = Team(teamA)
         self.teamB = Team(teamB)
 
@@ -70,3 +87,4 @@ class Game:
                 self.teamA.append(guest)
         else :
                 self.teamB.append(guest)
+
