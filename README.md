@@ -9,6 +9,5 @@ Personnes du groupe:
 
 # Lancement des cas de test
 
-Dans un premier temps, il faut se mettre dans un environnemnt virtuel python;
-Ensuite, afin d'installer toutes les dépendances, il faudra lancer un pip install requirement.txt;
-Enfin, pour lancer les tests, il vous faudra exécuter la commande pytest à la racine du projet.
+Dans un premier temps, il faut se mettre dans votre environnemnt virtuel python;
+Lancer la ligne `pip install -r requirements.txt && pytest` à la racine du projet.
